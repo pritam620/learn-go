@@ -4,9 +4,14 @@ import (
 	"fmt"
 )
 
-const prefix_en = "Hello, "
-const prefix_sp = "Hola, "
-const prefix_fr = "Bonjour, "
+const (
+	french  = "French"
+	spanish = "Spanish"
+
+	prefix_en = "Hello, "
+	prefix_sp = "Hola, "
+	prefix_fr = "Bonjour, "
+)
 
 func main() {
 	fmt.Println(Hello("world", ""))
@@ -16,11 +21,17 @@ func Hello(name string, language string) string {
 	if name == "" {
 		name = "World"
 	}
-	if language == "Spanish" {
-		return prefix_sp + name
+	return greetingPrefix(language) + name
+}
+
+func greetingPrefix(language string) (prefix string) {
+	switch language {
+	case spanish:
+		prefix = prefix_sp
+	case french:
+		prefix = prefix_fr
+	default:
+		prefix = prefix_en
 	}
-	if language == "French" {
-		return prefix_fr + name
-	}
-	return prefix_en + name
+	return
 }
