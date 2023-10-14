@@ -2,10 +2,15 @@ package main // if not main then it will return error: package learn-go/hello is
 
 import "fmt"
 
+const prefix_en = "Hello, "
+
 func main() {
 	fmt.Println(Hello("world"))
 }
 
 func Hello(name string) string {
-	return "Hello " + name
+	if name == "" {
+		name = "world"
+	}
+	return prefix_en + name
 }
