@@ -1,9 +1,13 @@
 package structs
 
-func Perimeter(width, length float64) float64 {
-	return 2 * (width + length)
+func Perimeter(rectangle Rectangle) float64 {
+	return 2 * (rectangle.width + rectangle.length)
 }
 
-func Area(width, length float64) float64 {
-	return width * length
+func Area(rectangle Rectangle) float64 {
+	return rectangle.length * rectangle.width
+}
+
+type Rectangle struct {
+	width, length float64
 }
